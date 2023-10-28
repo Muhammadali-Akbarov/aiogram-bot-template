@@ -1,0 +1,86 @@
+[tool.black]
+target-version = ["py310"]
+
+[tool.isort]
+profile = "black"
+py_version = 310
+force_alphabetical_sort_within_sections = true
+group_by_package = true
+
+[tool.mypy]
+python_version = "3.10"
+files = "bot.py"
+show_error_codes = true
+show_error_context = true
+pretty = true
+ignore_missing_imports = false
+warn_unused_configs = true
+disallow_subclassing_any = true
+disallow_any_generics = true
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_return_any = true
+follow_imports_for_stubs = true
+namespace_packages = true
+show_absolute_path = true
+
+
+[[tool.mypy.overrides]]
+module = "asyncpg.*"
+ignore_missing_imports = true
+
+
+[tool.ruff]
+select = ["E", "F", "B"]
+ignore = ["E501"]
+unfixable = ["B"]
+target-version = "py310"
+ignore-init-module-imports = true
+
+
+[tool.poetry]
+name = "aiogram-bot-template"
+version = "2.2.0"
+description = "Template for creating scalable bots with aiogram"
+authors = ["Forden <24463229+Forden@users.noreply.github.com>"]
+readme = "README.md"
+packages = [{ include = "aiogram_bot_template" }]
+
+[tool.poetry.scripts]
+aiogram_bot_template = "aiogram_bot_template.bot:main"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+environs = "^9.5.0"
+aiohttp = "3.8.5"
+aiojobs = "1.2.0"
+aiogram = "3.1.0"
+asyncpg = "0.28.0"
+redis = "5.0.0"
+orjson = "3.9.7"
+structlog = "^23.1.0"
+tenacity = "8.2.3"
+pytz = "^2023.3.post1"
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.3.0"
+black = { extras = ["d"], version = "^23.3.0" }
+ruff = "^0.0.267"
+types-redis = "^4.5.5.2"
+isort= "5.12.0"
+types-pytz = "^2023.3.0.1"
+
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
