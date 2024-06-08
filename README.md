@@ -9,7 +9,7 @@ Support Group - <a href="https://t.me/+bYouuOlqt1c3NmYy">Telegram</a><br>
   - ```pip3 install virtualenv```
   - ```virtualenv venv```
   - ```venv\Scripts\activate```(windows) or ```source venv/bin/activate```(unix-based systems)
-* 3 - cd into project "cd payme-sample"
+* 3 - cd into project "cd aiogram-bot-template"
 * 4 - Install dependencies
   - ```pip3 install -r requirements.txt```
 * 5 - Set your environment variables
